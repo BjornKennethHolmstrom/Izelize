@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!-- Definitions for gradients -->
+    <defs>
+        <!-- Main gradients using Izelize colors -->
+        <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#5A189A"/>
+            <stop offset="100%" style="stop-color:#9D4EDD"/>
+        </linearGradient>
+        <linearGradient id="leafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#8AC926"/>
+            <stop offset="100%" style="stop-color:#0077B6"/>
+        </linearGradient>
+        <linearGradient id="leafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFD60A"/>
+            <stop offset="100%" style="stop-color:#0077B6"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Background circle with solid color for better visibility at small sizes -->
+    <circle cx="50" cy="50" r="48" fill="#353B64"/>
+    
+    <!-- Simplified version of the connected blobs pattern -->
+    <g>
+        <!-- Center blob - made slightly larger for better visibility -->
+        <circle cx="50" cy="50" r="18" fill="url(#centerGrad)"/>
+        
+        <!-- Surrounding elements - simplified for favicon clarity -->
+        <path d="M50,30 Q70,30 70,50 Q70,70 50,70 Q30,70 30,50 Q30,30 50,30" 
+              fill="url(#leafGrad1)"/>
+        
+        <!-- Connecting dots - made larger for visibility -->
+        <circle cx="50" cy="50" r="3" fill="#8AC926"/>
+        <circle cx="70" cy="50" r="3" fill="#8AC926"/>
+        <circle cx="30" cy="50" r="3" fill="#8AC926"/>
+    </g>
+</svg>

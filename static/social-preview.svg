@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <!-- Definitions for gradients and filters -->
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="1200" height="630" fill="#353B64"/>
+    
+    <!-- Gradient overlay -->
+    <rect width="1200" height="630" fill="url(#gradient)" opacity="0.1"/>
+    
+    <!-- Definitions -->
     <defs>
-        <!-- Main blob gradients -->
+        <!-- Background gradient -->
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#5A189A"/>
+            <stop offset="100%" style="stop-color:#8AC926"/>
+        </linearGradient>
+        
+        <!-- Logo gradients -->
         <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style="stop-color:#5A189A"/>
             <stop offset="100%" style="stop-color:#9D4EDD"/>
@@ -15,44 +27,29 @@
             <stop offset="0%" style="stop-color:#FFD60A"/>
             <stop offset="100%" style="stop-color:#0077B6"/>
         </linearGradient>
-        <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#2B2D42"/>
-            <stop offset="100%" style="stop-color:#5A189A"/>
-        </linearGradient>
-        
-        <!-- Glow effect -->
-        <filter id="glow">
-            <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
-            <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
     </defs>
-
-    <!-- Background circle -->
-    <circle cx="50" cy="50" r="48" fill="#353B64"/>
-
-    <!-- Connected blobs forming a flower pattern -->
-    <g filter="url(#glow)">
+    
+    <!-- Logo (scaled and centered) -->
+    <g transform="translate(150,165) scale(3)">
         <!-- Center blob -->
         <circle cx="50" cy="50" r="15" fill="url(#grad1)" opacity="0.9"/>
-
         <!-- Surrounding blobs -->
         <path d="M50,35 Q65,35 65,50 Q65,65 50,65 Q35,65 35,50 Q35,35 50,35" 
               fill="url(#grad2)" opacity="0.8"/>
         <path d="M65,50 Q80,50 80,65 Q80,80 65,80 Q50,80 50,65 Q50,50 65,50" 
               fill="url(#grad3)" opacity="0.8"/>
         <path d="M35,50 Q20,50 20,65 Q20,80 35,80 Q50,80 50,65 Q50,50 35,50" 
-              fill="url(#grad4)" opacity="0.8"/>
-
+              fill="url(#grad1)" opacity="0.8"/>
         <!-- Connecting lines -->
         <path d="M50,50 L65,65 M50,50 L35,65" 
               stroke="#9D4EDD" stroke-width="2" opacity="0.6"/>
     </g>
-
-    <!-- Decorative dots at intersections -->
-    <circle cx="50" cy="50" r="2" fill="#8AC926"/>
-    <circle cx="65" cy="65" r="2" fill="#8AC926"/>
-    <circle cx="35" cy="65" r="2" fill="#8AC926"/>
+    
+    <!-- Text -->
+    <text x="600" y="280" fill="#FFFFFF" font-family="system-ui" font-size="72" text-anchor="middle" font-weight="bold">
+        Izelize
+    </text>
+    <text x="600" y="360" fill="#8AC926" font-family="system-ui" font-size="32" text-anchor="middle">
+        Transform Ideas into Impact
+    </text>
 </svg>

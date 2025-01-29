@@ -1,0 +1,100 @@
+<!-- src/lib/components/Logo.svelte -->
+<script lang="ts">
+  import { theme } from '$lib/stores';
+  export let className = ''; // Changed from class_ to className for consistency
+</script>
+
+<svg 
+  viewBox="0 0 100 100" 
+  class={className} 
+  xmlns="http://www.w3.org/2000/svg"
+>
+    <!-- Definitions for gradients and filters -->
+    <defs>
+        <!-- Main blob gradients -->
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:{$theme === 'brand' ? '#5A189A' : '#FF79C6'}" />
+            <stop offset="100%" style="stop-color:{$theme === 'brand' ? '#9D4EDD' : '#BD93F9'}" />
+        </linearGradient>
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:{$theme === 'brand' ? '#8AC926' : '#50FA7B'}" />
+            <stop offset="100%" style="stop-color:{$theme === 'brand' ? '#0077B6' : '#8BE9FD'}" />
+        </linearGradient>
+        <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:{$theme === 'brand' ? '#FFD60A' : '#FFB86C'}" />
+            <stop offset="100%" style="stop-color:{$theme === 'brand' ? '#0077B6' : '#FF5555'}" />
+        </linearGradient>
+        <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:{$theme === 'brand' ? '#2B2D42' : '#6272A4'}" />
+            <stop offset="100%" style="stop-color:{$theme === 'brand' ? '#5A189A' : '#44475A'}" />
+        </linearGradient>
+        
+        <!-- Glow effect -->
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- Background circle -->
+    <circle 
+      cx="50" 
+      cy="50" 
+      r="48" 
+      fill={$theme === 'brand' ? '#353B64' : '#282A36'}
+    />
+    
+    <!-- Connected blobs forming a flower pattern -->
+    <g filter="url(#glow)">
+        <!-- Center blob -->
+        <circle cx="50" cy="50" r="15" fill="url(#grad1)" opacity="0.9"/>
+        
+        <!-- Surrounding blobs -->
+        <path 
+          d="M50,35 Q65,35 65,50 Q65,65 50,65 Q35,65 35,50 Q35,35 50,35" 
+          fill="url(#grad2)" 
+          opacity="0.8"
+        />
+        <path 
+          d="M65,50 Q80,50 80,65 Q80,80 65,80 Q50,80 50,65 Q50,50 65,50" 
+          fill="url(#grad3)" 
+          opacity="0.8"
+        />
+        <path 
+          d="M35,50 Q20,50 20,65 Q20,80 35,80 Q50,80 50,65 Q50,50 35,50" 
+          fill="url(#grad4)" 
+          opacity="0.8"
+        />
+        
+        <!-- Connecting lines -->
+        <path 
+          d="M50,50 L65,65 M50,50 L35,65" 
+          stroke={$theme === 'brand' ? '#9D4EDD' : '#BD93F9'} 
+          stroke-width="2" 
+          opacity="0.6"
+        />
+    </g>
+    
+    <!-- Decorative dots at intersections -->
+    <circle 
+      cx="50" 
+      cy="50" 
+      r="2" 
+      fill={$theme === 'brand' ? '#8AC926' : '#50FA7B'}
+    />
+    <circle 
+      cx="65" 
+      cy="65" 
+      r="2" 
+      fill={$theme === 'brand' ? '#8AC926' : '#50FA7B'}
+    />
+    <circle 
+      cx="35" 
+      cy="65" 
+      r="2" 
+      fill={$theme === 'brand' ? '#8AC926' : '#50FA7B'}
+    />
+</svg>
