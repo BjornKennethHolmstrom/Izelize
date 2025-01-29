@@ -9,6 +9,7 @@
   import ThemeAndLanguageSwitcher from '$lib/components/ThemeAndLanguageSwitcher.svelte';
   import FloatingShareButton from '$lib/components/FloatingShareButton.svelte';
   import SEO from '$lib/components/SEO.svelte';
+  import Favicon from '$lib/components/Favicon.svelte';
   
   $: currentTheme = themeConfig[$theme];
   $: path = $page.url.pathname;
@@ -23,6 +24,7 @@
 </script>
 
 <SEO {path} />
+<Favicon />
 
 <div 
   class="theme-root"
@@ -51,7 +53,7 @@
     --primary: #5A189A;
     --secondary: #8AC926;
     --accent: #FFD60A;
-    --background: #2B2D42;
+    --background: #353B64;
     --text: #EDEDED;
   }
 
