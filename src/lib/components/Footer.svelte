@@ -2,6 +2,7 @@
 <script lang="ts">
   import { language } from '$lib/stores';
   import { Github } from 'lucide-svelte';
+  import { base } from '$app/paths';
 
   const year = new Date().getFullYear();
   
@@ -9,22 +10,22 @@
     about: {
       title: { en: 'About', sv: 'Om' },
       links: [
-        { href: '/about', en: 'Our Vision', sv: 'Vår Vision' },
-        { href: '/about#ecosystem', en: 'The Ecosystem', sv: 'Ekosystemet' }
+        { href: '{base}/about', en: 'Our Vision', sv: 'Vår Vision' },
+        { href: '{base}/about#ecosystem', en: 'The Ecosystem', sv: 'Ekosystemet' }
       ]
     },
     contact: {
       title: { en: 'Contact', sv: 'Kontakt' },
       links: [
-        { href: '/contact', en: 'Get in Touch', sv: 'Kontakta Oss' },
+        { href: '{base}/contact', en: 'Get in Touch', sv: 'Kontakta Oss' },
         { href: 'https://github.com/BjornKennethHolmstrom', external: true, en: 'GitHub', sv: 'GitHub' }
       ]
     },
     support: {
       title: { en: 'Support', sv: 'Support' },
       links: [
-        { href: '/support', en: 'Documentation', sv: 'Dokumentation' },
-        { href: '/support#contribute', en: 'Contribute', sv: 'Bidra' }
+        { href: '{base}/support', en: 'Documentation', sv: 'Dokumentation' },
+        { href: '{base}/support#contribute', en: 'Contribute', sv: 'Bidra' }
       ]
     }
   };

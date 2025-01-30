@@ -2,11 +2,12 @@
 <script lang="ts">
   import { theme, language } from '$lib/stores';
   import Logo from './Logo.svelte';
+  import { base } from '$app/paths';
   
   const navItems = [
-    { id: 'projects', href: '/projects', en: 'Projects', sv: 'Projekt' },
-    { id: 'about', href: '/about', en: 'About', sv: 'Om' },
-    { id: 'contact', href: '/contact', en: 'Contact', sv: 'Kontakt' }
+    { id: 'projects', href: '{base}/projects', en: 'Projects', sv: 'Projekt' },
+    { id: 'about', href: '{base}/about', en: 'About', sv: 'Om' },
+    { id: 'contact', href: '{base}/contact', en: 'Contact', sv: 'Kontakt' }
   ];
 </script>
 
