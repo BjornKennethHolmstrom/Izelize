@@ -6,16 +6,16 @@ const config = {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
-      fallback: null, // Remove `index.html` fallback
+      fallback: null,
       precompress: false,
       strict: true
     }),
     paths: {
-      base: process.env.NODE_ENV === 'production' ? '/Izelize' : '' // ✅ Base path should only be set in production
+      base: process.env.GITHUB_ACTIONS ? '/Izelize' : '' // ✅ Correctly sets base path only in GitHub Actions
     },
     appDir: 'app',
     prerender: {
-      entries: ['*'], // Ensure everything is prerendered
+      entries: ['*'], // Ensure full prerendering
       handleHttpError: ({ path, referrer, message }) => {
         console.warn(`Skipping prerendering error: ${message} at ${path}`);
       }

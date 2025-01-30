@@ -32,6 +32,9 @@ jobs:
         run: npm ci
 
       - name: Build project
+        env:
+          GITHUB_ACTIONS: true  # ✅ Explicitly set the GitHub Actions environment variable
+          NODE_ENV: production
         run: npm run build
 
       - name: Upload artifact
@@ -49,3 +52,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
