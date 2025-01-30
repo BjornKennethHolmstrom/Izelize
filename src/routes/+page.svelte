@@ -5,7 +5,10 @@
   import ShareButtons from '$lib/components/ShareButtons.svelte';
   import SEO from '$lib/components/SEO.svelte';
   import { base } from '$app/paths';
-  
+
+  // Function to handle the base path dynamically
+  const getPath = (path: string) => `${base ? base : ''}${path}`;
+
   const content = {
     hero: {
       title: {
@@ -65,8 +68,9 @@
         {content.hero.subtitle[$language]}
       </p>
       
+      <!-- Corrected Projects Page Link -->
       <a 
-        href="{base}/projects"
+        href="{getPath('/projects')}"
         class="inline-block bg-secondary hover:bg-secondary/90 text-background font-semibold px-6 py-3 rounded-lg transition-colors"
       >
         {content.hero.cta[$language]}
@@ -115,3 +119,4 @@
     background-color: var(--background);
   }
 </style>
+

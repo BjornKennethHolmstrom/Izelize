@@ -6,7 +6,11 @@
   import { language } from '$lib/stores';
   import ShareButtons from '$lib/components/ShareButtons.svelte';
   import SEO from '$lib/components/SEO.svelte';
-  
+  import { base } from '$app/paths';
+
+  // Function to handle base path dynamically
+  const getPath = (path: string) => `${base ? base : ''}${path}`;
+
   const content = {
     title: {
       en: 'Our Projects',
@@ -31,7 +35,8 @@
       }
     }
   };
-  
+
+  // Filter projects by status
   $: launchedProjects = projects.filter(p => p.status === 'launched');
   $: inProgressProjects = projects.filter(p => p.status === 'in-progress');
   $: upcomingProjects = projects.filter(p => p.status === 'upcoming');
@@ -42,7 +47,7 @@
   description={$language === 'en'
     ? 'Explore our ecosystem of tools and platforms for knowledge integration and personal growth.'
     : 'Utforska vårt ekosystem av verktyg och plattformar för kunskapsintegration och personlig utveckling.'}
-  path="/projects"
+  path={getPath('/projects')}
 />
 
 <div class="theme-bg min-h-screen">
@@ -69,7 +74,7 @@
               <ShareCard 
                 title={project.name}
                 description={project.description[$language]}
-                image={project.logo}
+                image={getPath(project.logo)}
               />
           {/each}
         </div>
@@ -88,7 +93,7 @@
               <ShareCard 
                 title={project.name}
                 description={project.description[$language]}
-                image={project.logo}
+                image={getPath(project.logo)}
               />
           {/each}
         </div>
@@ -131,3 +136,4 @@
     background-color: var(--background);
   }
 </style>
+

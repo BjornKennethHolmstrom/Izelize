@@ -5,27 +5,30 @@
   import { base } from '$app/paths';
 
   const year = new Date().getFullYear();
-  
+
+  // Function to dynamically adjust links with base path
+  const getPath = (path: string) => `${base ? base : ''}${path}`;
+
   const footerSections = {
     about: {
       title: { en: 'About', sv: 'Om' },
       links: [
-        { href: '{base}/about', en: 'Our Vision', sv: 'Vår Vision' },
-        { href: '{base}/about#ecosystem', en: 'The Ecosystem', sv: 'Ekosystemet' }
+        { href: getPath('/about'), en: 'Our Vision', sv: 'Vår Vision' },
+        { href: getPath('/about#ecosystem'), en: 'The Ecosystem', sv: 'Ekosystemet' }
       ]
     },
     contact: {
       title: { en: 'Contact', sv: 'Kontakt' },
       links: [
-        { href: '{base}/contact', en: 'Get in Touch', sv: 'Kontakta Oss' },
+        { href: getPath('/contact'), en: 'Get in Touch', sv: 'Kontakta Oss' },
         { href: 'https://github.com/BjornKennethHolmstrom', external: true, en: 'GitHub', sv: 'GitHub' }
       ]
     },
     support: {
       title: { en: 'Support', sv: 'Support' },
       links: [
-        { href: '{base}/support', en: 'Documentation', sv: 'Dokumentation' },
-        { href: '{base}/support#contribute', en: 'Contribute', sv: 'Bidra' }
+        { href: getPath('/support'), en: 'Documentation', sv: 'Dokumentation' },
+        { href: getPath('/support#contribute'), en: 'Contribute', sv: 'Bidra' }
       ]
     }
   };
@@ -71,3 +74,4 @@
     background-color: rgba(var(--background-rgb), 0.5);
   }
 </style>
+
